@@ -1,0 +1,5 @@
+*.o
+*.out
+*.d
+Makefile
+PPC603gnu/IterativeTemplate/Debug/ctdt.c
