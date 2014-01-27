@@ -88,7 +88,7 @@ public:
 
     void setLeft(float speed)
     {
-            leftMotor -> Set(speed);
+            leftMotor -> Set(speed *-1);
             
     }
     
