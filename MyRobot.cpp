@@ -9,13 +9,13 @@ const int ELEVATOR_MOTOR_ID = 5;
 
 const int LIFT_UP_BUTTON_ID = 5;
 const int LIFT_DOWN_BUTTON_ID = 3;
-const float LIFT_SPEED = .8;
+const float LIFT_SPEED = .1;
 const int THROW_BUTTON_ID = 1;
 const int DETHROW_BUTTON_ID = 2;
-const float THROW_SPEED = .7;
+const float THROW_SPEED = .1;
 const int ELEVATOR_UP_BUTTON_ID = 6;
 const int ELEVATOR_DOWN_BUTTON_ID = 4;
-const float ELEVATOR_SPEED = .2;
+const float ELEVATOR_SPEED = .1;
 		
 
 class HerbertBot : public IterativeRobot
