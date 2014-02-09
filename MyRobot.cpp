@@ -4,19 +4,20 @@
 const int FRONT_LEFT_MOTOR_ID = 1;
 const int FRONT_RIGHT_MOTOR_ID = 2;
 const int LIFT_MOTOR_ID = 3;
-const int THROW_MOTOR_ID = 4;
-const int ELEVATOR_MOTOR_ID = 5;
+const int THROW_MOTOR_ID = 5;
+const int ELEVATOR_MOTOR_ID = 4;
 
 const int LIFT_UP_BUTTON_ID = 5;
 const int LIFT_DOWN_BUTTON_ID = 3;
-const float LIFT_SPEED = .1;
-const int THROW_BUTTON_ID = 1;
-const int DETHROW_BUTTON_ID = 2;
+const float LIFT_SPEED = .5;
+const int THROW_BUTTON_ID = 10;
+const int DETHROW_BUTTON_ID = 12;
 const float THROW_SPEED = .1;
 const int ELEVATOR_UP_BUTTON_ID = 6;
 const int ELEVATOR_DOWN_BUTTON_ID = 4;
-const float ELEVATOR_SPEED = .1;
+const float ELEVATOR_SPEED = .01;
 		
+
 
 class HerbertBot : public IterativeRobot
 
@@ -70,28 +71,13 @@ public:
             }
             else if(thirdStick->GetRawButton(LIFT_DOWN_BUTTON_ID))
             {
-            	setLift(LIFT_SPEED *-1);
+            	setLift(-.0025);
             	//liftRelay->Set(Relay::kReverse);
             }
             else
             {
             	setLift(0);
             	//liftRelay->Set(Relay::kOff);
-            }
-            if(thirdStick->GetRawButton(LIFT_UP_BUTTON_ID))
-            {
-              	setLift(LIFT_SPEED);
-                        	//liftRelay->Set(Relay::kForward);
-            }
-            else if(thirdStick->GetRawButton(LIFT_DOWN_BUTTON_ID))
-            {
-                setLift(LIFT_SPEED *-1);
-                        	//liftRelay->Set(Relay::kReverse);
-            }
-            else
-            {
-                setLift(0);
-                        	//liftRelay->Set(Relay::kOff);
             }
             if(thirdStick->GetRawButton(THROW_BUTTON_ID))
             {
