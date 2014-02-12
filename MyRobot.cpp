@@ -10,12 +10,13 @@ const int ELEVATOR_MOTOR_ID = 4;
 const int LIFT_UP_BUTTON_ID = 5;
 const int LIFT_DOWN_BUTTON_ID = 3;
 const float LIFT_SPEED = .5;
-const int THROW_BUTTON_ID = 10;
-const int DETHROW_BUTTON_ID = 12;
+const float LIFT_DOWN_SPEED = -.3;
+const int THROW_BUTTON_ID = 1;
+const int DETHROW_BUTTON_ID = 2;
 const float THROW_SPEED = .1;
 const int ELEVATOR_UP_BUTTON_ID = 6;
 const int ELEVATOR_DOWN_BUTTON_ID = 4;
-const float ELEVATOR_SPEED = .01;
+const float ELEVATOR_SPEED = .25;
 		
 
 
@@ -71,7 +72,7 @@ public:
             }
             else if(thirdStick->GetRawButton(LIFT_DOWN_BUTTON_ID))
             {
-            	setLift(-.0025);
+            	setLift(LIFT_DOWN_SPEED);
             	//liftRelay->Set(Relay::kReverse);
             }
             else
@@ -93,12 +94,14 @@ public:
             }
             if(thirdStick->GetRawButton(ELEVATOR_UP_BUTTON_ID))
             {
-              	setElevator(ELEVATOR_SPEED);
+            	printf("Elevator::up\n");
+              	setElevator(ELEVATOR_SPEED *-1);
 
             }
             else if(thirdStick->GetRawButton(ELEVATOR_DOWN_BUTTON_ID))
             {
-                setElevator(ELEVATOR_SPEED *-1);
+            	printf("Elevator::down\n");
+                setElevator(ELEVATOR_SPEED);
 
             }
             else
