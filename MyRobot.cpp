@@ -7,16 +7,18 @@ const int LIFT_MOTOR_ID = 3;
 const int THROW_MOTOR_ID = 5;
 const int ELEVATOR_MOTOR_ID = 4;
 
-const int LIFT_UP_BUTTON_ID = 5;
-const int LIFT_DOWN_BUTTON_ID = 3;
-const float LIFT_SPEED = .5;
-const float LIFT_DOWN_SPEED = -.3;
+//const int TICKS_FORWARD =600;
+
+const int LIFT_UP_BUTTON_ID = 3;
+const int LIFT_DOWN_BUTTON_ID = 5;
+const float LIFT_SPEED = -.2;
+const float LIFT_DOWN_SPEED = .9;
 const int THROW_BUTTON_ID = 1;
 const int DETHROW_BUTTON_ID = 2;
 const float THROW_SPEED = .1;
-const int ELEVATOR_UP_BUTTON_ID = 6;
-const int ELEVATOR_DOWN_BUTTON_ID = 4;
-const float ELEVATOR_SPEED = .25;
+const int ELEVATOR_UP_BUTTON_ID = 9;
+const int ELEVATOR_DOWN_BUTTON_ID = 11;
+const float ELEVATOR_SPEED = .35;
 		
 
 
@@ -51,7 +53,20 @@ public:
        // liftRelay = new Relay(LIFT_MOTOR_ID);
 	}
 	
-
+	void autonPeriodic(void)
+	{
+/*		Counter++;
+		if(counter<TICKS_FORWARD);
+		{
+			leftMotor->Set(1);
+			rightMotor->Set(1);
+		}
+		else
+		{
+		
+		}
+*/
+	}
     
     void TeleopPeriodic()
     {
@@ -70,7 +85,7 @@ public:
             	setLift(LIFT_SPEED);
             	//liftRelay->Set(Relay::kForward);
             }
-            else if(thirdStick->GetRawButton(LIFT_DOWN_BUTTON_ID))
+           else if(thirdStick->GetRawButton(LIFT_DOWN_BUTTON_ID))
             {
             	setLift(LIFT_DOWN_SPEED);
             	//liftRelay->Set(Relay::kReverse);
