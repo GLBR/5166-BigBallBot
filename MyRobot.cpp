@@ -7,12 +7,12 @@ const int LIFT_MOTOR_ID = 3;
 const int THROW_MOTOR_ID = 5;
 const int ELEVATOR_MOTOR_ID = 4;
 
-//const int TICKS_FORWARD =600;
+const int TICKS_FORWARD =600;
 
-const int LIFT_UP_BUTTON_ID = 3;
-const int LIFT_DOWN_BUTTON_ID = 5;
-const float LIFT_SPEED = -.2;
-const float LIFT_DOWN_SPEED = .9;
+const int LIFT_UP_BUTTON_ID = 5;
+const int LIFT_DOWN_BUTTON_ID = 3;
+const float LIFT_SPEED = .9;
+const float LIFT_DOWN_SPEED = -.15;
 const int THROW_BUTTON_ID = 1;
 const int DETHROW_BUTTON_ID = 2;
 const float THROW_SPEED = .1;
@@ -35,11 +35,13 @@ class HerbertBot : public IterativeRobot
     Jaguar *throwMotor;
     Jaguar *elevatorMotor;
     //Relay *liftRelay;
+    int counter;   
 
 public:
 	HerbertBot()
 	{
 
+		counter = 0;
         //Initialize the joysticks.
         leftStick = new Joystick(1);
         rightStick = new Joystick(2);
@@ -53,19 +55,21 @@ public:
        // liftRelay = new Relay(LIFT_MOTOR_ID);
 	}
 	
-	void autonPeriodic(void)
+	void AutonomousPeriodic()
 	{
-/*		Counter++;
+		counter++;
 		if(counter<TICKS_FORWARD);
 		{
+            //driving forward
 			leftMotor->Set(1);
 			rightMotor->Set(1);
 		}
-		else
+		if(counter>TICKS_FORWARD);
 		{
-		
+		    //stop driving forward
+			leftMotor->Set(0);
+			rightMotor->Set(0);
 		}
-*/
 	}
     
     void TeleopPeriodic()
