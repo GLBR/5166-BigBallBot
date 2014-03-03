@@ -7,18 +7,21 @@ const int LIFT_MOTOR_ID = 3;
 const int THROW_MOTOR_ID = 5;
 const int ELEVATOR_MOTOR_ID = 4;
 
-const int TICKS_FORWARD =600;
+const int TICKS_FORWARD = 100;
 
 const int LIFT_UP_BUTTON_ID = 5;
 const int LIFT_DOWN_BUTTON_ID = 3;
 const float LIFT_SPEED = .9;
-const float LIFT_DOWN_SPEED = -.15;
+const float LIFT_DOWN_SPEED = -.2;
 const int THROW_BUTTON_ID = 1;
 const int DETHROW_BUTTON_ID = 2;
-const float THROW_SPEED = .1;
+const float THROW_SPEED = .95
+		
+		
+		;
 const int ELEVATOR_UP_BUTTON_ID = 9;
 const int ELEVATOR_DOWN_BUTTON_ID = 11;
-const float ELEVATOR_SPEED = .35;
+const float ELEVATOR_SPEED = .45;
 		
 
 
@@ -58,13 +61,13 @@ public:
 	void AutonomousPeriodic()
 	{
 		counter++;
-		if(counter<TICKS_FORWARD);
+		if(counter<TICKS_FORWARD)
 		{
             //driving forward
-			leftMotor->Set(1);
-			rightMotor->Set(1);
+			leftMotor->Set(0.5);
+			rightMotor->Set(-0.5);
 		}
-		if(counter>TICKS_FORWARD);
+		else
 		{
 		    //stop driving forward
 			leftMotor->Set(0);
@@ -105,7 +108,7 @@ public:
             }
             else if(thirdStick->GetRawButton(DETHROW_BUTTON_ID))
             {
-            	setThrowingArm(THROW_SPEED *-1);
+            	setThrowingArm(THROW_SPEED *-0.375);
             }
             else
             {
