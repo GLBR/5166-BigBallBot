@@ -7,7 +7,9 @@ const int LIFT_MOTOR_ID = 3;
 const int THROW_MOTOR_ID = 5;
 const int ELEVATOR_MOTOR_ID = 4;
 
-const int TICKS_FORWARD = 100;
+const int TICKS_FORWARD = 75;
+const int TICKS_THROW = 130;
+const int TICKS_THROW_STOP = 160; //+30 to TICKS_THROW
 
 const int LIFT_UP_BUTTON_ID = 5;
 const int LIFT_DOWN_BUTTON_ID = 3;
@@ -15,13 +17,10 @@ const float LIFT_SPEED = .9;
 const float LIFT_DOWN_SPEED = -.2;
 const int THROW_BUTTON_ID = 1;
 const int DETHROW_BUTTON_ID = 2;
-const float THROW_SPEED = .95
-		
-		
-		;
+const float THROW_SPEED = 1.0;
 const int ELEVATOR_UP_BUTTON_ID = 9;
 const int ELEVATOR_DOWN_BUTTON_ID = 11;
-const float ELEVATOR_SPEED = .45;
+const float ELEVATOR_SPEED =0.75;
 		
 
 
@@ -64,14 +63,24 @@ public:
 		if(counter<TICKS_FORWARD)
 		{
             //driving forward
-			leftMotor->Set(0.5);
-			rightMotor->Set(-0.5);
+			leftMotor->Set(-0.5);
+			rightMotor->Set(0.5);
 		}
 		else
 		{
 		    //stop driving forward
 			leftMotor->Set(0);
 			rightMotor->Set(0);
+		}
+		{
+			if(counter>TICKS_THROW && counter<TICKS_THROW_STOP)
+			{
+				throwMotor->Set(0.95);
+			}
+			else
+			{
+				throwMotor->Set(0);
+			}
 		}
 	}
     
